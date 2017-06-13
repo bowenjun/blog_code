@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+    
+    <entry>
+      <title><![CDATA[http-proxy-middleware代理前端系统]]></title>
+      <url>%2F2017%2F05%2F04%2Fhttp-proxy-middleware%2F</url>
+      <content type="text"><![CDATA[安装 npm install –save-dev http-proxy-middleware 配置使用 express 搭建服务器 1234567891011121314151617...var proxyTable = require('./proxy/proxy');var proxy = require('http-proxy-middleware');...// proxy api requests// 顺序必须在 bodyParser 之前！！！Object.keys(proxyTable).forEach(function(context) &#123; var options = proxyTable[context] if (typeof options === 'string') &#123; options = &#123; target: options &#125; &#125; app.use(proxy(options.filter || context, options));&#125;) proxy/proxy.js 配置 1234567891011121314151617181920// 这里只提供基本用法 , 更多配置请参考 http-proxy-middleware readmemodule.exports = &#123; '/api': &#123; target: 'http://yourUrl:port1/', changeOrigin: true, pathRewrite: &#123; '^/api': '' &#125; &#125;, '/auth': &#123; target: 'http://yourUrl:port2/', changeOrigin: true, pathRewrite: &#123; '^/auth': '/auth' &#125;, onProxyReq: function(proxyReq, req, res) &#123; proxyReq.setHeader('add', 'xx') &#125; &#125;&#125; 工具手架如果你是想要直接将前端代码跑起来，node-1742 是我提供了一个可以使用 npm 获取并开箱即用的包。 123456789101112131415161718192021// 1. 下载npm install -g node-1742// 2. 命令生成// * new foldernode-1742 init new-foldercd new-folder// * exist foldercd exist-foldernode-1742 init// 3. 安装依赖npm install// 4. 在 proxy/proxy.js 中配置代理// 5. 将前端文件放入 public 文件夹中，入口为 public/index.html// 6. 运行npm start Q &amp; A 通过 ajax 发送的请求后台接收不到 data ？ 错误原因： app.use(bodyParser.json()); app.use(bodyParser.urlencoded({ extended: false })); 将数据做了处理。 解决办法： 将 proxy 的 order 提到 bodyParser 之前 参考github : http-proxy-middleware vue-cli : config/index.js proxyTable &amp;&amp; build/dev-server.js]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[vue2学习纪要]]></title>
+      <url>%2F2017%2F04%2F14%2Fvue2%2F</url>
+      <content type="text"><![CDATA[参考：vue2官网 指令 v-for]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[常用算法]]></title>
+      <url>%2F2017%2F04%2F10%2Falgorithm%2F</url>
+      <content type="text"><![CDATA[算法（Algorithm）是指解决问题的一种方法或一个过程。严格地讲，算法是由若干条指令组成的有穷序列。对于计算机科学（当然包括软件工程）来说，算法的概念至关重要。计算机软硬件的一切问题几乎都能落实到具体的算法。只有设计出巧妙的算法，写出程序，才能解决千变万化的问题。 基础算法 枚举法 又称穷举法，指的是从可能的解的集合中一一枚举各元素，用给定的检验条件判定哪些无用哪些有用。能使命题成立的，即为其解。这是最直观，也是最容易想到的算法。 枚举法的特点是算法简单，但比较原始、笨拙，运算量大、算法复杂度呈指数级是它的弱点。但是如果能够在具体问题中排除明显不属于解集的元素，在局部地方使用枚举法，其效果会十分显著。 递归法 相信大家对递归都不陌生，像是经典的汉诺塔问题、斐波拉契数列问题、排列问题等，都可以用递归法求解。 递归算法从自身出发，通过不断调用同名方法到达边界条件从而得到问题的解。因此，递归算法常常使用系统堆栈，使得算法的效率较低，费时和费内存空间。但是递归却能使一个蕴涵递归关系且结构复杂的程序简洁精练，增加可读性。 贪心法 从问题的某一个初始解出发，向给定的目标递推。推进的每一步做一个当时看似最佳的贪心选择，不断地将问题实例归纳为更小的相似的子问题，并期望通过所做的局部最优选择产生出一个全局最优解。 关于贪心算法的实例，有背包问题、任务时间表问题等，大家可以在实例中具体体会贪心算法。 进阶 动态规划 动态规划（Dynamic Programming，DP）是一种重要的程序设计思想。所谓“动态”，指的是在问题的多阶段决策中，按某一顺序，根据每一步所选决策的不同，将随即引起状态的转移，最终在变化的状态中产生一个决策序列。动态规划就是为了使产生的决策序列在某种条件下达到最优。 通常能够用动态规划解决的问题，往往是最优化问题，且问题的最优解的局部往往是局部问题在相应条件下的最优解，而且问题的最优解与其子问题的最优解要有一定的关联，要能建立递推关系。 动态规划算法又包括线性动态规划、树形动态规划、概率动态规划和动态规划中的状态压缩等几个方面。 搜索算法 这是利用计算机的性能优势来有目的地枚举一个问题解空间的部分或所有的可能情况，从而求出问题的解的一种方法。在问题求解过程中，人们所面临的大多数现实问题往往没有确定性的算法，需要通过搜索算法来解决。 搜索算法一般包括两个重要的问题：搜索什么和在哪里搜索。因此，搜索一般分为两个阶段：状态空间的生成阶段和在该状态空间中对所求问题状态的搜索。一般来说，根据是否使用启发式信息将搜索算法分为盲目搜索和启发式搜索。 盲目搜索不考虑问题本身的特性，效率不高，所以一般需要寻找合理的搜索策略，改变搜索顺序。盲目搜索法中经典的两种是深度优先搜索（Depth First Search，DFS）和广度优先搜索（Breadth First Search，BFS）。 而启发式搜索是在搜索过程中加入了与问题有关的启发式信息，用于指导搜索朝着最有希望的方向前进，扫除不必要的搜索过程，加速问题求解并得到最优解。常见的有A*算法、蚁群算法、遗传算法、模拟退火算法等。 图算法 图算法在计算机科学中扮演着很重要的角色，它提供了对很多问题都有效的一种简单而系统的建模方式。很多问题都可以转化为图论问题，然后用图论的基本算法加以解决。 图算法研究的基本领域：最短路、生成树、连通性、网络流、匹配等。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[angular1文件上传]]></title>
+      <url>%2F2017%2F04%2F02%2Fuse_form_data_to_upload_file%2F</url>
+      <content type="text"><![CDATA[Q: post上传文件并带参数。 A: 解决方法有很多种，常用form表单。我们主要说使用 angular1 发送 ajax 。 1. angular1 $http.post后台需要传过去一个文件列表，传给后台 form-data 文件 list name 为 file 参数 name 为 type 在服务中封装了一个方法，相同的需求就只需要调用 http_form_file_data 方法。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758/** * 这一步非常重要 * 设置 Content-Type 为 undefined ，浏览器会自动填充 * ！！！千万不要设置 Content-Type 为 multipart/form-data !!! * /var postCfgFile = &#123; headers: &#123;'Content-Type': undefined&#125;, /** * 返回函数本身的第一个参数 * / transformRequest: angular.identity&#125;/** * post form data格式的带文件数据 * @param str * @param obj obj是一个自定义对象， * @returns &#123;Promise&#125; */http_form_file_data: function (str, obj) &#123; var deferred = $q.defer(); var data = new FormData(); angular.forEach(obj, function (value, key) &#123; /** * 文件的 key 是 file ，多个文件需要全部 append 到 FormData 里 if (key == 'file') &#123; angular.forEach(value, function (file) &#123; data.append(key, file); &#125;); return; &#125; data.append(key, value); &#125;); $http .post(str, data, postCfgFile) .success(function (data) &#123; deferred.resolve(data); &#125;); return deferred.promise;&#125; 如果设置 Content-Type 为 multipart/form-data ，后台会抛出 the current request boundary parameter is null 异常。 html中一般喜欢这样写，使用其他的样式来避免input[file]样式上的不足。（框架洁癖者请绕行） 1234567891011...&lt;input type="text" ng-model="uploadData.type"&gt;...&lt;a href class="file-upload" onclick="$('#files').trigger('click')"&gt;上传附件&lt;/a&gt;&lt;input type="file" id="files" onchange="angular.element(this).scope().chooseFile(event)" style="display: none;" multiple&gt;... 咱们控制器中通过 event 来将文件拿到，再 push 到数组中，这样可以添加多个文件。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849/** * 选择文件 * /$scope.chooseFile = function (event) &#123; var files = event.target.files; angular.forEach(files, function (file) &#123; $timeout(function () &#123; $scope.uploadData.file.push(file); &#125;) &#125;); &#125;;/** * 删除文件 * /$scope.deleteFile = function (item) &#123; var index = $scope.uploadData.file.indexOf(item); $scope.uploadData.file.splice(index, 1);&#125;;/** * 上传 * /$scope.upload = function () &#123; /** * httpServer 封装在服务中 * postUpload 执行 http_form_file_data 方法，并将 data 传过去 * / httpServer .postUpload($scope.uploadData) .then(function (result) &#123; ... &#125;)&#125;; 效果如下 2.angular-file-upload我们使用了很多的 angular-file-upload 来处理之前的上传，非常的好用，唯一麻烦的就是需要写很多的回调函数。详细使用参考 angular-file-upload 3.form表单使用表单是一个比较通用并且简单的方法，这里不详细说明。 12345&lt;from name="upload" action="url" method="post" enctype="multipart/form-data"&gt; &lt;input type="text" name="style"&gt; &lt;input type="file" name="file"&gt; &lt;input type="submit" value="提交"&gt;&lt;/from&gt; 其他问题请联系作者：1742]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[iview 2.0]]></title>
+      <url>%2F2017%2F03%2F28%2Fiview2%2F</url>
+      <content type="text"><![CDATA[iviews 2.0iviews 2.0]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[html 标签]]></title>
+      <url>%2F2017%2F03%2F27%2Fhtml-tags%2F</url>
+      <content type="text"><![CDATA[html 标签超文本标记语言 (Hyper Text Markup Language) 基础]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[hexo 简易教程]]></title>
+      <url>%2F2017%2F03%2F26%2Fhexo%2F</url>
+      <content type="text"><![CDATA[hexo 使用教程 详见：hexo官方教程 安装1$ npm install -g hexo-cli 建站123$ hexo init &lt;folder&gt;$ cd &lt;folder&gt;$ npm install 常用指令 new 1$ hexo new [layout] &lt;title&gt; 新建一篇文章 generate 12$ hexo generate$ hexo g (简写) 生成静态文件 server 1$ hexo server 启动服务器(默认4000端口) deploy 123$ hexo deploy$ hexo d (简写)$ hexo d -g (部署之前预先生成静态文件) 部署网站 clean 1$ hexo clean 清除缓存文件和已生成的静态文件]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[1742的博客系统正式启用]]></title>
+      <url>%2F2017%2F03%2F19%2Fhello-world%2F</url>
+      <content type="text"><![CDATA[经过了2天的折腾，个人博客系统终于上线了。 > 脑子不老。]]></content>
+    </entry>
+
+    
+  
+  
+</search>
