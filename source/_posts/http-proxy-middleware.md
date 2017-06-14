@@ -8,6 +8,8 @@ tags: ['proxy', 'express', 'node', 'javascript']
 
 > npm install --save-dev http-proxy-middleware
 
+<!--more-->
+
 #### 配置
 
 使用 express 搭建服务器
@@ -55,8 +57,6 @@ module.exports = {
   }
 }
 ```
-
-<!--more-->
 
 #### 工具手架
 

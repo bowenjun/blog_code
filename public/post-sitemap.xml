@@ -7,8 +7,8 @@
     </url>
 
     <url>
-        <loc>http://www.ss1742.com/2017/03/27/html-tags/</loc>
-        <lastmod>2017-05-21T02:48:37.000Z</lastmod>
+        <loc>http://www.ss1742.com/2017/05/26/grunt-watch/</loc>
+        <lastmod>2017-06-14T02:21:56.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -16,15 +16,7 @@
 
     <url>
         <loc>http://www.ss1742.com/2017/05/04/http-proxy-middleware/</loc>
-        <lastmod>2017-05-05T06:47:15.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.ss1742.com/2017/04/14/vue2/</loc>
-        <lastmod>2017-05-04T02:55:54.000Z</lastmod>
+        <lastmod>2017-06-14T01:53:54.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -32,7 +24,23 @@
 
     <url>
         <loc>http://www.ss1742.com/2017/03/26/hexo/</loc>
-        <lastmod>2017-04-10T04:34:59.000Z</lastmod>
+        <lastmod>2017-06-14T01:53:27.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.ss1742.com/2017/04/10/algorithm/</loc>
+        <lastmod>2017-06-14T01:53:07.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.ss1742.com/2016/06/01/scu-g/</loc>
+        <lastmod>2017-06-14T01:52:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -41,30 +49,6 @@
     <url>
         <loc>http://www.ss1742.com/2017/04/02/use_form_data_to_upload_file/</loc>
         <lastmod>2017-04-10T04:34:18.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.ss1742.com/2017/04/10/algorithm/</loc>
-        <lastmod>2017-04-10T04:33:24.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.ss1742.com/2017/03/28/iview2/</loc>
-        <lastmod>2017-04-09T07:32:36.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.ss1742.com/2017/03/19/hello-world/</loc>
-        <lastmod>2017-03-19T14:08:40.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

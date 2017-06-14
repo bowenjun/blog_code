@@ -3,16 +3,16 @@
   
     
     <entry>
-      <title><![CDATA[http-proxy-middleware代理前端系统]]></title>
-      <url>%2F2017%2F05%2F04%2Fhttp-proxy-middleware%2F</url>
-      <content type="text"><![CDATA[安装 npm install –save-dev http-proxy-middleware 配置使用 express 搭建服务器 1234567891011121314151617...var proxyTable = require('./proxy/proxy');var proxy = require('http-proxy-middleware');...// proxy api requests// 顺序必须在 bodyParser 之前！！！Object.keys(proxyTable).forEach(function(context) &#123; var options = proxyTable[context] if (typeof options === 'string') &#123; options = &#123; target: options &#125; &#125; app.use(proxy(options.filter || context, options));&#125;) proxy/proxy.js 配置 1234567891011121314151617181920// 这里只提供基本用法 , 更多配置请参考 http-proxy-middleware readmemodule.exports = &#123; '/api': &#123; target: 'http://yourUrl:port1/', changeOrigin: true, pathRewrite: &#123; '^/api': '' &#125; &#125;, '/auth': &#123; target: 'http://yourUrl:port2/', changeOrigin: true, pathRewrite: &#123; '^/auth': '/auth' &#125;, onProxyReq: function(proxyReq, req, res) &#123; proxyReq.setHeader('add', 'xx') &#125; &#125;&#125; 工具手架如果你是想要直接将前端代码跑起来，node-1742 是我提供了一个可以使用 npm 获取并开箱即用的包。 123456789101112131415161718192021// 1. 下载npm install -g node-1742// 2. 命令生成// * new foldernode-1742 init new-foldercd new-folder// * exist foldercd exist-foldernode-1742 init// 3. 安装依赖npm install// 4. 在 proxy/proxy.js 中配置代理// 5. 将前端文件放入 public 文件夹中，入口为 public/index.html// 6. 运行npm start Q &amp; A 通过 ajax 发送的请求后台接收不到 data ？ 错误原因： app.use(bodyParser.json()); app.use(bodyParser.urlencoded({ extended: false })); 将数据做了处理。 解决办法： 将 proxy 的 order 提到 bodyParser 之前 参考github : http-proxy-middleware vue-cli : config/index.js proxyTable &amp;&amp; build/dev-server.js]]></content>
+      <title><![CDATA[grunt]]></title>
+      <url>%2F2017%2F05%2F26%2Fgrunt-watch%2F</url>
+      <content type="text"><![CDATA[配置 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950module.exports = function(grunt) &#123; // 配置 grunt.initConfig(&#123; pkg : grunt.file.readJSON('package.json'), uglify : &#123; options : &#123; banner : '/*! &lt;%= pkg.name %&gt; &lt;%= grunt.template.today("yyyy-mm-dd HH:MM:ss") %&gt; */\n' &#125;, build : &#123; options: &#123; mangle: false &#125;, files: &#123; 'build/app.min.js': [ 'app/*.js', 'app/*/*.js', 'app/*/*/*.js', 'app/*/*/*/*.js' ] &#125; &#125; &#125;, less: &#123; compile: &#123; options: &#123; paths: ["app/app/css"] &#125;, files: &#123; "build/style.css": "app/css/main.less" &#125; &#125; &#125;, watch: &#123; scripts: &#123; files: ['app/css/*.less', 'app/*.js', 'app/*/*.js', 'app/*/*/*.js', 'app/*/*/*/*.js'], tasks: ['less', 'uglify'] &#125; &#125; &#125;); // 载入uglify插件 grunt.loadNpmTasks('grunt-contrib-uglify'); // less grunt.loadNpmTasks('grunt-contrib-less'); // watch grunt.loadNpmTasks('grunt-contrib-watch'); // 注册任务 grunt.registerTask('default', ['uglify', 'less', 'watch']);&#125;; 配置说明 initConfig uglify build 通过 * 通配文件，并将js压缩，结果存放到 build/app.min.js initConfig less compile 直接将  main.less 文件通过 grunt-contrib-less 转换为 css，在 main.less 中通过 import 导入的文件也会被转换，最终生成一个 css 文件为 build/app.min.js initConfig watch scripts watch 通过 * 通配变化的文件，若文件内容发生变化，会执行 uglify 和 less 这两个 tasks 插件 grunt.loadNpmTasks(‘grunt-contrib-uglify’); grunt.loadNpmTasks(‘grunt-contrib-less’); grunt.loadNpmTasks(‘grunt-contrib-watch’); 注册 配置完成之后执行注册任务 grunt.registerTask(‘default’, [‘uglify’, ‘less’, ‘watch’]); package.json12345678910111213&#123; "name": "grunt", "version": "0.1.0", "devDependencies": &#123; "grunt": "~0.4.0", "grunt-contrib-concat": "~0.2.0", "grunt-contrib-jshint": "~0.6.5", "grunt-contrib-less": "^1.4.0", "grunt-contrib-uglify": "~0.2.7", "grunt-contrib-watch": "^1.0.0", "grunt-jsdoc": "^2.1.0" &#125;&#125; 常见问题Q: grunt: watch ENOSPC A: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf &amp;&amp; sudo sysctl -p]]></content>
     </entry>
 
     
     <entry>
-      <title><![CDATA[vue2学习纪要]]></title>
-      <url>%2F2017%2F04%2F14%2Fvue2%2F</url>
-      <content type="text"><![CDATA[参考：vue2官网 指令 v-for]]></content>
+      <title><![CDATA[http-proxy-middleware代理前端系统]]></title>
+      <url>%2F2017%2F05%2F04%2Fhttp-proxy-middleware%2F</url>
+      <content type="text"><![CDATA[安装 npm install –save-dev http-proxy-middleware 配置使用 express 搭建服务器 1234567891011121314151617...var proxyTable = require('./proxy/proxy');var proxy = require('http-proxy-middleware');...// proxy api requests// 顺序必须在 bodyParser 之前！！！Object.keys(proxyTable).forEach(function(context) &#123; var options = proxyTable[context] if (typeof options === 'string') &#123; options = &#123; target: options &#125; &#125; app.use(proxy(options.filter || context, options));&#125;) proxy/proxy.js 配置 1234567891011121314151617181920// 这里只提供基本用法 , 更多配置请参考 http-proxy-middleware readmemodule.exports = &#123; '/api': &#123; target: 'http://yourUrl:port1/', changeOrigin: true, pathRewrite: &#123; '^/api': '' &#125; &#125;, '/auth': &#123; target: 'http://yourUrl:port2/', changeOrigin: true, pathRewrite: &#123; '^/auth': '/auth' &#125;, onProxyReq: function(proxyReq, req, res) &#123; proxyReq.setHeader('add', 'xx') &#125; &#125;&#125; 工具手架如果你是想要直接将前端代码跑起来，node-1742 是我提供了一个可以使用 npm 获取并开箱即用的包。 123456789101112131415161718192021// 1. 下载npm install -g node-1742// 2. 命令生成// * new foldernode-1742 init new-foldercd new-folder// * exist foldercd exist-foldernode-1742 init// 3. 安装依赖npm install// 4. 在 proxy/proxy.js 中配置代理// 5. 将前端文件放入 public 文件夹中，入口为 public/index.html// 6. 运行npm start Q &amp; A 通过 ajax 发送的请求后台接收不到 data ？ 错误原因： app.use(bodyParser.json()); app.use(bodyParser.urlencoded({ extended: false })); 将数据做了处理。 解决办法： 将 proxy 的 order 提到 bodyParser 之前 参考github : http-proxy-middleware vue-cli : config/index.js proxyTable &amp;&amp; build/dev-server.js]]></content>
     </entry>
 
     
@@ -31,20 +31,6 @@
 
     
     <entry>
-      <title><![CDATA[iview 2.0]]></title>
-      <url>%2F2017%2F03%2F28%2Fiview2%2F</url>
-      <content type="text"><![CDATA[iviews 2.0iviews 2.0]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[html 标签]]></title>
-      <url>%2F2017%2F03%2F27%2Fhtml-tags%2F</url>
-      <content type="text"><![CDATA[html 标签超文本标记语言 (Hyper Text Markup Language) 基础]]></content>
-    </entry>
-
-    
-    <entry>
       <title><![CDATA[hexo 简易教程]]></title>
       <url>%2F2017%2F03%2F26%2Fhexo%2F</url>
       <content type="text"><![CDATA[hexo 使用教程 详见：hexo官方教程 安装1$ npm install -g hexo-cli 建站123$ hexo init &lt;folder&gt;$ cd &lt;folder&gt;$ npm install 常用指令 new 1$ hexo new [layout] &lt;title&gt; 新建一篇文章 generate 12$ hexo generate$ hexo g (简写) 生成静态文件 server 1$ hexo server 启动服务器(默认4000端口) deploy 123$ hexo deploy$ hexo d (简写)$ hexo d -g (部署之前预先生成静态文件) 部署网站 clean 1$ hexo clean 清除缓存文件和已生成的静态文件]]></content>
@@ -52,9 +38,9 @@
 
     
     <entry>
-      <title><![CDATA[1742的博客系统正式启用]]></title>
-      <url>%2F2017%2F03%2F19%2Fhello-world%2F</url>
-      <content type="text"><![CDATA[经过了2天的折腾，个人博客系统终于上线了。 > 脑子不老。]]></content>
+      <title><![CDATA[毕业设计]]></title>
+      <url>%2F2016%2F06%2F01%2Fscu-g%2F</url>
+      <content type="text"><![CDATA[毕业设计收拾整理为知笔记，这里将毕业设计的部分笔记写成博客后移除为知笔记。 关于毕业设计毕业设计我做的是基于数据分析的高考志愿填报系统。 Q:为何基于数据分析？ A:因为只有十年间的高考数据可以和仅能作为参考。算不上数据挖掘。 Q:使用到的技术？ A:我是前端开发工程师。技术栈前端使用angularjs1 框架，后台接口使用 express 框架，数据库 mysql 。系统最主要的模型是斗斗学姐通过多元线性回归做的，我只需要将模型转换为code就可以了。 笔记爬虫 request request(url, function (error, response, body) {} cheerio var $ = cheerio.load(body.data); express 新建 express express app 配置端口 1234app.set('port', process.env.PORT || 3000);app.listen(app.get('port'), function () &#123; console.log('Express server listening on port ' + app.get('port'));&#125;); 设置模板引擎 1234var ejs = require('ejs');app.set('views', __dirname + '/views');app.engine('.html', ejs.__express);app.set('view engine', 'html'); 使用静态文件 app.use(express.static(‘app’)); mysql 配置 mysql 123456789101112131415var _mysql = require('mysql');var HOST = 'localhost', PORT = '3306', MYSQL_USER = 'root', MYSQL_PASS = '123456', DATABASE = 'scu', CHARSET = 'UTF8';var config = &#123; host: HOST, port: PORT, user: MYSQL_USER, password: MYSQL_PASS, charset: CHARSET&#125;; 连接 mysql 回调 1234567891011121314151617181920var Connect = function(sql, sql_params) &#123; var mysql = _mysql.createConnection(config); mysql.query('use ' + DATABASE, function(error, results) &#123; if(error) &#123; console.log('ClientConnectionReady Error: ' + error.message); mysql.end(); return; &#125; &#125;); mysql.query(sql,sql_params,function (err, result) &#123; if(err)&#123; console.log('ERROR] - ',err.message); return; &#125; &#125;); mysql.end();&#125;;]]></content>
     </entry>
 
     

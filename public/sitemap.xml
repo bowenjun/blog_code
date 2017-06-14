@@ -3,7 +3,7 @@
 
     <sitemap>
         <loc>http://www.ss1742.com/post-sitemap.xml</loc>
-        <lastmod>2017-05-21T02:48:37.000Z</lastmod>
+        <lastmod>2017-06-14T02:21:56.000Z</lastmod>
     </sitemap>
 
     <sitemap>
@@ -12,8 +12,13 @@
     </sitemap>
 
     <sitemap>
+        <loc>http://www.ss1742.com/category-sitemap.xml</loc>
+        <lastmod>2017-06-14T01:52:22.000Z</lastmod>
+    </sitemap>
+
+    <sitemap>
         <loc>http://www.ss1742.com/tag-sitemap.xml</loc>
-        <lastmod>2017-04-09T07:32:36.000Z</lastmod>
+        <lastmod>2017-04-10T04:34:18.000Z</lastmod>
     </sitemap>
 
 </sitemapindex>

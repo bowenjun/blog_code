@@ -13,6 +13,7 @@ tag: ["hexo"]
 ```
 $ npm install -g hexo-cli
 ```
+<!--more-->
 
 #### 建站
 ```
@@ -20,8 +21,6 @@ $ hexo init <folder>
 $ cd <folder>
 $ npm install
 ```
-
-<!--more-->
 
 #### 常用指令
 > new 

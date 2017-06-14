@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.ss1742.com/"/>
-  <updated>2017-05-05T06:47:15.000Z</updated>
+  <updated>2017-06-14T02:21:56.000Z</updated>
   <id>http://www.ss1742.com/</id>
   
   <author>
@@ -16,20 +16,71 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>grunt</title>
+    <link href="http://www.ss1742.com/2017/05/26/grunt-watch/"/>
+    <id>http://www.ss1742.com/2017/05/26/grunt-watch/</id>
+    <published>2017-05-26T13:16:14.000Z</published>
+    <updated>2017-06-14T02:21:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><a id="more"></a>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">module.exports = <span class="keyword">function</span>(grunt) &#123;</div><div class="line"></div><div class="line">    // 配置</div><div class="line">    grunt.initConfig(&#123;</div><div class="line">        pkg : grunt.file.readJSON(<span class="string">'package.json'</span>),</div><div class="line">        uglify : &#123;</div><div class="line">            options : &#123;</div><div class="line">                banner : <span class="string">'/*! &lt;%= pkg.name %&gt; &lt;%= grunt.template.today("yyyy-mm-dd HH:MM:ss") %&gt; */\n'</span></div><div class="line">            &#125;,</div><div class="line">            build : &#123;</div><div class="line">                options: &#123;</div><div class="line">                    mangle: false</div><div class="line">                &#125;,</div><div class="line">                files: &#123;</div><div class="line">                    <span class="string">'build/app.min.js'</span>: [</div><div class="line">                        <span class="string">'app/*.js'</span>, <span class="string">'app/*/*.js'</span>, <span class="string">'app/*/*/*.js'</span>, <span class="string">'app/*/*/*/*.js'</span></div><div class="line">                    ]</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        less: &#123;</div><div class="line">            compile: &#123;</div><div class="line">                options: &#123;</div><div class="line">                    paths: [<span class="string">"app/app/css"</span>]</div><div class="line">                &#125;,</div><div class="line">                files: &#123;</div><div class="line">                    <span class="string">"build/style.css"</span>: <span class="string">"app/css/main.less"</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        watch: &#123;</div><div class="line">            scripts: &#123;</div><div class="line">                files: [<span class="string">'app/css/*.less'</span>, <span class="string">'app/*.js'</span>, <span class="string">'app/*/*.js'</span>, <span class="string">'app/*/*/*.js'</span>, <span class="string">'app/*/*/*/*.js'</span>],</div><div class="line">                tasks: [<span class="string">'less'</span>, <span class="string">'uglify'</span>]</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    // 载入uglify插件</div><div class="line">    grunt.loadNpmTasks(<span class="string">'grunt-contrib-uglify'</span>);</div><div class="line"></div><div class="line">    // less</div><div class="line">    grunt.loadNpmTasks(<span class="string">'grunt-contrib-less'</span>);</div><div class="line"></div><div class="line">    // watch</div><div class="line">    grunt.loadNpmTasks(<span class="string">'grunt-contrib-watch'</span>);</div><div class="line"></div><div class="line">    // 注册任务</div><div class="line">    grunt.registerTask(<span class="string">'default'</span>, [<span class="string">'uglify'</span>, <span class="string">'less'</span>, <span class="string">'watch'</span>]);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="配置说明"><a href="#配置说明" class="headerlink" title="配置说明"></a>配置说明</h3><ul>
+<li><p><code>initConfig uglify</code></p>
+<p>  <code>build</code> 通过 <code>*</code> 通配文件，并将js压缩，结果存放到 <code>build/app.min.js</code></p>
+</li>
+<li><p><code>initConfig less</code></p>
+<p>  <code>compile</code> 直接将  <code>main.less</code> 文件通过 <code>grunt-contrib-less</code> 转换为 <code>css</code>，在 <code>main.less</code> 中通过 <code>import</code> 导入的文件也会被转换，最终生成一个 <code>css</code> 文件为 <code>build/app.min.js</code></p>
+</li>
+<li><p><code>initConfig watch</code></p>
+<p>  <code>scripts watch</code> 通过  <code>*</code> 通配变化的文件，若文件内容发生变化，会执行 <code>uglify</code> 和 <code>less</code> 这两个 <code>tasks</code></p>
+</li>
+<li><p>插件</p>
+<ul>
+<li><code>grunt.loadNpmTasks(‘grunt-contrib-uglify’);</code></li>
+<li><code>grunt.loadNpmTasks(‘grunt-contrib-less’);</code></li>
+<li><code>grunt.loadNpmTasks(‘grunt-contrib-watch’);</code></li>
+</ul>
+</li>
+<li><p>注册</p>
+<p>  配置完成之后执行注册任务</p>
+<blockquote>
+<p><code>grunt.registerTask(‘default’, [‘uglify’, ‘less’, ‘watch’]);</code></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"name"</span>: <span class="string">"grunt"</span>,</div><div class="line">  <span class="attr">"version"</span>: <span class="string">"0.1.0"</span>,</div><div class="line">  <span class="attr">"devDependencies"</span>: &#123;</div><div class="line">    <span class="attr">"grunt"</span>: <span class="string">"~0.4.0"</span>,</div><div class="line">    <span class="attr">"grunt-contrib-concat"</span>: <span class="string">"~0.2.0"</span>,</div><div class="line">    <span class="attr">"grunt-contrib-jshint"</span>: <span class="string">"~0.6.5"</span>,</div><div class="line">    <span class="attr">"grunt-contrib-less"</span>: <span class="string">"^1.4.0"</span>,</div><div class="line">    <span class="attr">"grunt-contrib-uglify"</span>: <span class="string">"~0.2.7"</span>,</div><div class="line">    <span class="attr">"grunt-contrib-watch"</span>: <span class="string">"^1.0.0"</span>,</div><div class="line">    <span class="attr">"grunt-jsdoc"</span>: <span class="string">"^2.1.0"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p>Q: <code>grunt: watch ENOSPC</code></p>
+<p>A: <code>echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf &amp;&amp; sudo sysctl -p</code></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;配置&quot;&gt;&lt;a href=&quot;#配置&quot; class=&quot;headerlink&quot; title=&quot;配置&quot;&gt;&lt;/a&gt;配置&lt;/h3&gt;
+    
+    </summary>
+    
+      <category term="webpack-grunt-glup" scheme="http://www.ss1742.com/categories/webpack-grunt-glup/"/>
+    
+    
+      <category term="grunt" scheme="http://www.ss1742.com/tags/grunt/"/>
+    
+  </entry>
+  
+  <entry>
     <title>http-proxy-middleware代理前端系统</title>
     <link href="http://www.ss1742.com/2017/05/04/http-proxy-middleware/"/>
     <id>http://www.ss1742.com/2017/05/04/http-proxy-middleware/</id>
     <published>2017-05-03T16:00:00.000Z</published>
-    <updated>2017-05-05T06:47:15.000Z</updated>
+    <updated>2017-06-14T01:53:54.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><blockquote>
 <p>npm install –save-dev http-proxy-middleware</p>
 </blockquote>
+<a id="more"></a>
 <h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>使用 express 搭建服务器</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"></div><div class="line"><span class="keyword">var</span> proxyTable = <span class="keyword">require</span>(<span class="string">'./proxy/proxy'</span>);</div><div class="line"><span class="keyword">var</span> proxy = <span class="keyword">require</span>(<span class="string">'http-proxy-middleware'</span>);</div><div class="line">...</div><div class="line"></div><div class="line"><span class="comment">// proxy api requests</span></div><div class="line"><span class="comment">// 顺序必须在 bodyParser 之前！！！</span></div><div class="line">Object.keys(proxyTable).<span class="keyword">forEach</span>(<span class="function"><span class="keyword">function</span><span class="params">(context)</span> </span>&#123;</div><div class="line">  <span class="keyword">var</span> options = proxyTable[context]</div><div class="line">  <span class="keyword">if</span> (typeof options === <span class="string">'string'</span>) &#123;</div><div class="line">    options = &#123;</div><div class="line">      target: options</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  app.<span class="keyword">use</span>(proxy(options.filter || context, options));</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>proxy/proxy.js 配置</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 这里只提供基本用法 , 更多配置请参考 http-proxy-middleware readme</span></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="string">'/api'</span>: &#123;</div><div class="line">    <span class="attr">target</span>: <span class="string">'http://yourUrl:port1/'</span>,</div><div class="line">    <span class="attr">changeOrigin</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">pathRewrite</span>: &#123;</div><div class="line">      <span class="string">'^/api'</span>: <span class="string">''</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="string">'/auth'</span>: &#123;</div><div class="line">    <span class="attr">target</span>: <span class="string">'http://yourUrl:port2/'</span>,</div><div class="line">    <span class="attr">changeOrigin</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">pathRewrite</span>: &#123;</div><div class="line">      <span class="string">'^/auth'</span>: <span class="string">'/auth'</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">onProxyReq</span>: <span class="function"><span class="keyword">function</span>(<span class="params">proxyReq, req, res</span>) </span>&#123;</div><div class="line">      proxyReq.setHeader(<span class="string">'add'</span>, <span class="string">'xx'</span>)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<a id="more"></a>
 <h4 id="工具手架"><a href="#工具手架" class="headerlink" title="工具手架"></a>工具手架</h4><p>如果你是想要直接将前端代码跑起来，node-1742 是我提供了一个可以使用 npm 获取并开箱即用的包。</p>
 <figure class="highlight smali"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">// 1. 下载</div><div class="line">npm install -g node-1742</div><div class="line"></div><div class="line">// 2. 命令生成</div><div class="line">// *<span class="built_in"> new </span>folder</div><div class="line">node-1742 init<span class="built_in"> new-folder</span></div><div class="line">cd<span class="built_in"> new-folder</span></div><div class="line"></div><div class="line">// * exist folder</div><div class="line">cd exist-folder</div><div class="line">node-1742 init</div><div class="line"></div><div class="line">// 3. 安装依赖</div><div class="line">npm install</div><div class="line"></div><div class="line">// 4. 在 proxy/proxy.js 中配置代理</div><div class="line"></div><div class="line">// 5. 将前端文件放入<span class="keyword"> public</span> 文件夹中，入口为<span class="keyword"> public</span>/index.html</div><div class="line"></div><div class="line">// 6. 运行</div><div class="line">npm start</div></pre></td></tr></table></figure>
 <h4 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q &amp; A"></a>Q &amp; A</h4><blockquote>
@@ -50,48 +101,17 @@
       &lt;h4 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;npm install –save-dev http-proxy-middleware&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h4 id=&quot;配置&quot;&gt;&lt;a href=&quot;#配置&quot; class=&quot;headerlink&quot; title=&quot;配置&quot;&gt;&lt;/a&gt;配置&lt;/h4&gt;&lt;p&gt;使用 express 搭建服务器&lt;/p&gt;
-&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;...&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; proxyTable = &lt;span class=&quot;keyword&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;./proxy/proxy&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; proxy = &lt;span class=&quot;keyword&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;http-proxy-middleware&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;...&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// proxy api requests&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 顺序必须在 bodyParser 之前！！！&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Object.keys(proxyTable).&lt;span class=&quot;keyword&quot;&gt;forEach&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(context)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; options = proxyTable[context]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (typeof options === &lt;span class=&quot;string&quot;&gt;&#39;string&#39;&lt;/span&gt;) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    options = &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      target: options&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  app.&lt;span class=&quot;keyword&quot;&gt;use&lt;/span&gt;(proxy(options.filter || context, options));&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;proxy/proxy.js 配置&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 这里只提供基本用法 , 更多配置请参考 http-proxy-middleware readme&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;module&lt;/span&gt;.exports = &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&#39;/api&#39;&lt;/span&gt;: &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;target&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;http://yourUrl:port1/&#39;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;changeOrigin&lt;/span&gt;: &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;pathRewrite&lt;/span&gt;: &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;span class=&quot;string&quot;&gt;&#39;^/api&#39;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&#39;/auth&#39;&lt;/span&gt;: &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;target&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;http://yourUrl:port2/&#39;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;changeOrigin&lt;/span&gt;: &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;pathRewrite&lt;/span&gt;: &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;span class=&quot;string&quot;&gt;&#39;^/auth&#39;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;/auth&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;onProxyReq&lt;/span&gt;: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;proxyReq, req, res&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      proxyReq.setHeader(&lt;span class=&quot;string&quot;&gt;&#39;add&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;xx&#39;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
-    
-      <category term="proxy" scheme="http://www.ss1742.com/tags/proxy/"/>
     
       <category term="express" scheme="http://www.ss1742.com/tags/express/"/>
     
       <category term="node" scheme="http://www.ss1742.com/tags/node/"/>
     
+      <category term="proxy" scheme="http://www.ss1742.com/tags/proxy/"/>
+    
       <category term="javascript" scheme="http://www.ss1742.com/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue2学习纪要</title>
-    <link href="http://www.ss1742.com/2017/04/14/vue2/"/>
-    <id>http://www.ss1742.com/2017/04/14/vue2/</id>
-    <published>2017-04-13T16:00:00.000Z</published>
-    <updated>2017-05-04T02:55:54.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>参考：<a href="https://cn.vuejs.org/v2/guide" target="_blank" rel="external">vue2官网</a></p>
-<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><ul>
-<li>v-for</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;参考：&lt;a href=&quot;https://cn.vuejs.org/v2/guide&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;vue2官网&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;指令&quot;&gt;&lt;a href=&quot;#指令&quot; class=&quot;headerlink&quot; tit
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="http://www.ss1742.com/tags/vue/"/>
-    
-      <category term="vue2" scheme="http://www.ss1742.com/tags/vue2/"/>
     
   </entry>
   
@@ -100,15 +120,15 @@
     <link href="http://www.ss1742.com/2017/04/10/algorithm/"/>
     <id>http://www.ss1742.com/2017/04/10/algorithm/</id>
     <published>2017-04-09T16:00:00.000Z</published>
-    <updated>2017-04-10T04:33:24.000Z</updated>
+    <updated>2017-06-14T01:53:07.000Z</updated>
     
     <content type="html"><![CDATA[<p>算法（Algorithm）是指解决问题的一种方法或一个过程。严格地讲，算法是由若干条指令组成的有穷序列。对于计算机科学（当然包括软件工程）来说，算法的概念至关重要。计算机软硬件的一切问题几乎都能落实到具体的算法。只有设计出巧妙的算法，写出程序，才能解决千变万化的问题。</p>
+<a id="more"></a>
 <h4 id="基础算法"><a href="#基础算法" class="headerlink" title="基础算法"></a>基础算法</h4><blockquote>
 <p>枚举法</p>
 </blockquote>
 <p>又称穷举法，指的是从可能的解的集合中一一枚举各元素，用给定的检验条件判定哪些无用哪些有用。能使命题成立的，即为其解。这是最直观，也是最容易想到的算法。</p>
 <p>枚举法的特点是算法简单，但比较原始、笨拙，运算量大、算法复杂度呈指数级是它的弱点。但是如果能够在具体问题中排除明显不属于解集的元素，在局部地方使用枚举法，其效果会十分显著。</p>
-<a id="more"></a>
 <blockquote>
 <p>递归法</p>
 </blockquote>
@@ -142,11 +162,6 @@
     <summary type="html">
     
       &lt;p&gt;算法（Algorithm）是指解决问题的一种方法或一个过程。严格地讲，算法是由若干条指令组成的有穷序列。对于计算机科学（当然包括软件工程）来说，算法的概念至关重要。计算机软硬件的一切问题几乎都能落实到具体的算法。只有设计出巧妙的算法，写出程序，才能解决千变万化的问题。&lt;/p&gt;
-&lt;h4 id=&quot;基础算法&quot;&gt;&lt;a href=&quot;#基础算法&quot; class=&quot;headerlink&quot; title=&quot;基础算法&quot;&gt;&lt;/a&gt;基础算法&lt;/h4&gt;&lt;blockquote&gt;
-&lt;p&gt;枚举法&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;又称穷举法，指的是从可能的解的集合中一一枚举各元素，用给定的检验条件判定哪些无用哪些有用。能使命题成立的，即为其解。这是最直观，也是最容易想到的算法。&lt;/p&gt;
-&lt;p&gt;枚举法的特点是算法简单，但比较原始、笨拙，运算量大、算法复杂度呈指数级是它的弱点。但是如果能够在具体问题中排除明显不属于解集的元素，在局部地方使用枚举法，其效果会十分显著。&lt;/p&gt;
     
     </summary>
     
@@ -212,68 +227,18 @@
   </entry>
   
   <entry>
-    <title>iview 2.0</title>
-    <link href="http://www.ss1742.com/2017/03/28/iview2/"/>
-    <id>http://www.ss1742.com/2017/03/28/iview2/</id>
-    <published>2017-03-28T13:16:14.000Z</published>
-    <updated>2017-04-09T07:32:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="iviews-2-0"><a href="#iviews-2-0" class="headerlink" title="iviews 2.0"></a>iviews 2.0</h3><p><a href="https://www.iviewui.com/" target="_blank" rel="external">iviews 2.0</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;iviews-2-0&quot;&gt;&lt;a href=&quot;#iviews-2-0&quot; class=&quot;headerlink&quot; title=&quot;iviews 2.0&quot;&gt;&lt;/a&gt;iviews 2.0&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.iviewui.com/&quot; tar
-    
-    </summary>
-    
-    
-      <category term="iviews" scheme="http://www.ss1742.com/tags/iviews/"/>
-    
-      <category term="vue" scheme="http://www.ss1742.com/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>html 标签</title>
-    <link href="http://www.ss1742.com/2017/03/27/html-tags/"/>
-    <id>http://www.ss1742.com/2017/03/27/html-tags/</id>
-    <published>2017-03-26T16:00:01.000Z</published>
-    <updated>2017-05-21T02:48:37.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="html-标签"><a href="#html-标签" class="headerlink" title="html 标签"></a>html 标签</h3><p>超文本标记语言 (Hyper Text Markup Language)</p>
-<blockquote>
-<p>基础</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;html-标签&quot;&gt;&lt;a href=&quot;#html-标签&quot; class=&quot;headerlink&quot; title=&quot;html 标签&quot;&gt;&lt;/a&gt;html 标签&lt;/h3&gt;&lt;p&gt;超文本标记语言 (Hyper Text Markup Language)&lt;/p&gt;
-&lt;blockquo
-    
-    </summary>
-    
-    
-      <category term="html" scheme="http://www.ss1742.com/tags/html/"/>
-    
-      <category term="tags" scheme="http://www.ss1742.com/tags/tags/"/>
-    
-  </entry>
-  
-  <entry>
     <title>hexo 简易教程</title>
     <link href="http://www.ss1742.com/2017/03/26/hexo/"/>
     <id>http://www.ss1742.com/2017/03/26/hexo/</id>
     <published>2017-03-26T13:16:14.000Z</published>
-    <updated>2017-04-10T04:34:59.000Z</updated>
+    <updated>2017-06-14T01:53:27.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="hexo-使用教程"><a href="#hexo-使用教程" class="headerlink" title="hexo 使用教程"></a>hexo 使用教程</h3><hr>
 <p>详见：<a href="https://hexo.io/zh-cn" target="_blank" rel="external">hexo官方教程</a></p>
 <hr>
 <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-<span class="keyword">cli</span></div></pre></td></tr></table></figure>
-<h4 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h4><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>hexo init &lt;folder&gt;</div><div class="line"><span class="variable">$ </span>cd &lt;folder&gt;</div><div class="line"><span class="variable">$ </span>npm install</div></pre></td></tr></table></figure>
 <a id="more"></a>
+<h4 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h4><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>hexo init &lt;folder&gt;</div><div class="line"><span class="variable">$ </span>cd &lt;folder&gt;</div><div class="line"><span class="variable">$ </span>npm install</div></pre></td></tr></table></figure>
 <h4 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h4><blockquote>
 <p>new </p>
 </blockquote>
@@ -307,7 +272,6 @@
 &lt;p&gt;详见：&lt;a href=&quot;https://hexo.io/zh-cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;hexo官方教程&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h4 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h4&gt;&lt;figure class=&quot;highlight avrasm&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ npm install -g hexo-&lt;span class=&quot;keyword&quot;&gt;cli&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h4 id=&quot;建站&quot;&gt;&lt;a href=&quot;#建站&quot; class=&quot;headerlink&quot; title=&quot;建站&quot;&gt;&lt;/a&gt;建站&lt;/h4&gt;&lt;figure class=&quot;highlight elixir&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;hexo init &amp;lt;folder&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;cd &amp;lt;folder&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;npm install&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -317,26 +281,72 @@
   </entry>
   
   <entry>
-    <title>1742的博客系统正式启用</title>
-    <link href="http://www.ss1742.com/2017/03/19/hello-world/"/>
-    <id>http://www.ss1742.com/2017/03/19/hello-world/</id>
-    <published>2017-03-19T13:16:14.000Z</published>
-    <updated>2017-03-19T14:08:40.000Z</updated>
+    <title>毕业设计</title>
+    <link href="http://www.ss1742.com/2016/06/01/scu-g/"/>
+    <id>http://www.ss1742.com/2016/06/01/scu-g/</id>
+    <published>2016-05-31T16:00:00.000Z</published>
+    <updated>2017-06-14T01:52:22.000Z</updated>
     
-    <content type="html"><![CDATA[<p>经过了2天的折腾，个人博客系统终于上线了。</p>
-<p>></p>
-<p>脑子不老。</p>
+    <content type="html"><![CDATA[<h2 id="毕业设计"><a href="#毕业设计" class="headerlink" title="毕业设计"></a>毕业设计</h2><p>收拾整理为知笔记，这里将毕业设计的部分笔记写成博客后移除为知笔记。</p>
+<a id="more"></a>
+<h3 id="关于毕业设计"><a href="#关于毕业设计" class="headerlink" title="关于毕业设计"></a>关于毕业设计</h3><p>毕业设计我做的是基于数据分析的高考志愿填报系统。</p>
+<p>Q:为何基于数据分析？</p>
+<p>A:因为只有十年间的高考数据可以和仅能作为参考。算不上数据挖掘。</p>
+<p>Q:使用到的技术？</p>
+<p>A:我是前端开发工程师。技术栈前端使用<code>angularjs1</code> 框架，后台接口使用 <code>express</code> 框架，数据库 <code>mysql</code> 。系统最主要的模型是斗斗学姐通过多元线性回归做的，我只需要将模型转换为code就可以了。</p>
+<h3 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h3><h4 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h4><ul>
+<li><p><code>request</code></p>
+<blockquote>
+<p>request(url, function (error, response, body) {}</p>
+</blockquote>
+</li>
+<li><p><code>cheerio</code></p>
+<blockquote>
+<p>var $ = cheerio.load(body.data);</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="express"><a href="#express" class="headerlink" title="express"></a>express</h4><ul>
+<li><p>新建 <code>express</code></p>
+<blockquote>
+<p>express app</p>
+</blockquote>
+</li>
+<li><p>配置端口</p>
+  <figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">app.<span class="keyword">set</span>(<span class="string">'port'</span>, process.env.PORT || <span class="number">3000</span>);</div><div class="line">app.listen(app.<span class="keyword">get</span>(<span class="string">'port'</span>), <span class="function"><span class="keyword">function</span> </span>() &#123;</div><div class="line">    console.log(<span class="string">'Express server listening on port '</span> + app.<span class="keyword">get</span>(<span class="string">'port'</span>));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>设置模板引擎</p>
+  <figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> ejs = <span class="keyword">require</span>(<span class="string">'ejs'</span>);</div><div class="line">app.<span class="built_in">set</span>(<span class="string">'views'</span>, __dirname + <span class="string">'/views'</span>);</div><div class="line">app.engine(<span class="string">'.html'</span>, ejs.__express);</div><div class="line">app.<span class="built_in">set</span>(<span class="string">'view engine'</span>, <span class="string">'html'</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用静态文件</p>
+<blockquote>
+<p>app.use(express.static(‘app’));</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h4><ul>
+<li><p>配置 <code>mysql</code></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> _mysql = <span class="built_in">require</span>(<span class="string">'mysql'</span>);</div><div class="line"><span class="keyword">var</span> HOST = <span class="string">'localhost'</span>,</div><div class="line">    PORT = <span class="string">'3306'</span>,</div><div class="line">    MYSQL_USER = <span class="string">'root'</span>,</div><div class="line">    MYSQL_PASS = <span class="string">'123456'</span>,</div><div class="line">    DATABASE = <span class="string">'scu'</span>,</div><div class="line">    CHARSET = <span class="string">'UTF8'</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> config = &#123;</div><div class="line">    <span class="attr">host</span>: HOST,</div><div class="line">    <span class="attr">port</span>: PORT,</div><div class="line">    <span class="attr">user</span>: MYSQL_USER,</div><div class="line">    <span class="attr">password</span>: MYSQL_PASS,</div><div class="line">    <span class="attr">charset</span>: CHARSET</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>连接 <code>mysql</code> 回调</p>
+  <figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">var Connect = <span class="function"><span class="keyword">function</span><span class="params">(sql, sql_params)</span></span> &#123;</div><div class="line"></div><div class="line">    var mysql = _mysql.createConnection(<span class="built_in">config</span>);</div><div class="line">    mysql.query(<span class="string">'use '</span> + DATABASE, <span class="function"><span class="keyword">function</span><span class="params">(error, results)</span></span> &#123;</div><div class="line">        <span class="keyword">if</span>(<span class="built_in">error</span>) &#123;</div><div class="line">            console.log(<span class="string">'ClientConnectionReady Error: '</span> + <span class="built_in">error</span>.message);</div><div class="line">            mysql.<span class="keyword">end</span>();</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    mysql.query(sql,sql_params,<span class="function"><span class="keyword">function</span> <span class="params">(err, result)</span></span> &#123;</div><div class="line">        <span class="keyword">if</span>(err)&#123;</div><div class="line">            console.log(<span class="string">'ERROR] - '</span>,err.message);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    mysql.<span class="keyword">end</span>();</div><div class="line">&#125;;</div></pre></td></tr></table></figure></li>
+</ul>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;经过了2天的折腾，个人博客系统终于上线了。&lt;/p&gt;
-&lt;p&gt;&gt;&lt;/p&gt;
-&lt;p&gt;脑子不老。&lt;/p&gt;
-
+      &lt;h2 id=&quot;毕业设计&quot;&gt;&lt;a href=&quot;#毕业设计&quot; class=&quot;headerlink&quot; title=&quot;毕业设计&quot;&gt;&lt;/a&gt;毕业设计&lt;/h2&gt;&lt;p&gt;收拾整理为知笔记，这里将毕业设计的部分笔记写成博客后移除为知笔记。&lt;/p&gt;
     
     </summary>
     
+      <category term="scu" scheme="http://www.ss1742.com/categories/scu/"/>
+    
+    
+      <category term="express" scheme="http://www.ss1742.com/tags/express/"/>
+    
+      <category term="node" scheme="http://www.ss1742.com/tags/node/"/>
+    
+      <category term="mysql" scheme="http://www.ss1742.com/tags/mysql/"/>
     
   </entry>
   

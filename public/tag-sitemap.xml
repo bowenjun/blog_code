@@ -2,20 +2,6 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>http://www.ss1742.com/tags/iviews/</loc>
-        <lastmod>2017-04-09T07:32:36.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.ss1742.com/tags/algorithm/</loc>
-        <lastmod>2017-04-10T04:33:24.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://www.ss1742.com/tags/angular1/</loc>
         <lastmod>2017-04-10T04:34:18.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -37,64 +23,57 @@
     </url>
 
     <url>
+        <loc>http://www.ss1742.com/tags/mysql/</loc>
+        <lastmod>2017-06-14T01:52:22.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.ss1742.com/tags/algorithm/</loc>
+        <lastmod>2017-06-14T01:53:07.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://www.ss1742.com/tags/hexo/</loc>
-        <lastmod>2017-04-10T04:34:59.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.ss1742.com/tags/vue/</loc>
-        <lastmod>2017-05-04T02:55:54.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.ss1742.com/tags/vue2/</loc>
-        <lastmod>2017-05-04T02:55:54.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.ss1742.com/tags/proxy/</loc>
-        <lastmod>2017-05-05T06:47:15.000Z</lastmod>
+        <lastmod>2017-06-14T01:53:27.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://www.ss1742.com/tags/express/</loc>
-        <lastmod>2017-05-05T06:47:15.000Z</lastmod>
+        <lastmod>2017-06-14T01:53:54.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://www.ss1742.com/tags/node/</loc>
-        <lastmod>2017-05-05T06:47:15.000Z</lastmod>
+        <lastmod>2017-06-14T01:53:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.ss1742.com/tags/proxy/</loc>
+        <lastmod>2017-06-14T01:53:54.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://www.ss1742.com/tags/javascript/</loc>
-        <lastmod>2017-05-05T06:47:15.000Z</lastmod>
+        <lastmod>2017-06-14T01:53:54.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://www.ss1742.com/tags/html/</loc>
-        <lastmod>2017-05-21T02:48:37.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.ss1742.com/tags/tags/</loc>
-        <lastmod>2017-05-21T02:48:37.000Z</lastmod>
+        <loc>http://www.ss1742.com/tags/grunt/</loc>
+        <lastmod>2017-06-14T02:21:56.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
