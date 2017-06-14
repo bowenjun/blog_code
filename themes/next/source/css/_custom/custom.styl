@@ -1,0 +1,28 @@
+// Custom styles.
+// 主页文章添加阴影效果
+.post {
+    //margin-top: 60px;
+    margin-bottom: 60px;
+    padding: 25px;
+	border-radius: 2px;
+    -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
+    -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
+    box-shadow: 0 0 5px rgba(202, 203, 204, .5);
+	transition: all .5s;
+	-moz-transition: all .5s;
+	-webkit-transition: all .5s;
+	-o-transition: all .5s;
+}
+.post:hover {
+	background: #fff;
+	border-radius: 2px;
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -o-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+// 网易云跟帖评论样式自定义（我自己添加的）
+.post-comments-count a::before {
+    content: "评论";
+}
