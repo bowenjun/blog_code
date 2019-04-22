@@ -109,8 +109,9 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="http-proxy-middleware代理前端系统">
 <meta property="og:url" content="http://www.ss1742.com/2017/05/04/http-proxy-middleware/index.html">
-<meta property="og:site_name" content="1742@xxs的个人博客">
+<meta property="og:site_name" content="1742的个人博客">
 <meta property="og:description" content="安装 npm install –save-dev http-proxy-middleware">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-06-14T01:53:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http-proxy-middleware代理前端系统">
@@ -148,7 +149,7 @@
 
 
 
-  <title> http-proxy-middleware代理前端系统 | 1742@xxs的个人博客 </title>
+  <title> http-proxy-middleware代理前端系统 | 1742的个人博客 </title>
 </head>
 
 
@@ -188,12 +189,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">1742@xxs的个人博客</span>
+        <span class="site-title">1742的个人博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">笔者人生</p>
+        <p class="site-subtitle">笔者</p>
       
   </div>
 
@@ -300,7 +301,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="1742@xxs的个人博客">
+      <meta itemprop="name" content="1742的个人博客">
     </span>
 
     
@@ -383,11 +384,11 @@
 </blockquote>
 <a id="more"></a>
 <h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>使用 express 搭建服务器</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"></div><div class="line"><span class="keyword">var</span> proxyTable = <span class="keyword">require</span>(<span class="string">'./proxy/proxy'</span>);</div><div class="line"><span class="keyword">var</span> proxy = <span class="keyword">require</span>(<span class="string">'http-proxy-middleware'</span>);</div><div class="line">...</div><div class="line"></div><div class="line"><span class="comment">// proxy api requests</span></div><div class="line"><span class="comment">// 顺序必须在 bodyParser 之前！！！</span></div><div class="line">Object.keys(proxyTable).<span class="keyword">forEach</span>(<span class="function"><span class="keyword">function</span><span class="params">(context)</span> </span>&#123;</div><div class="line">  <span class="keyword">var</span> options = proxyTable[context]</div><div class="line">  <span class="keyword">if</span> (typeof options === <span class="string">'string'</span>) &#123;</div><div class="line">    options = &#123;</div><div class="line">      target: options</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  app.<span class="keyword">use</span>(proxy(options.filter || context, options));</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> proxyTable = <span class="keyword">require</span>(<span class="string">'./proxy/proxy'</span>);</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="keyword">require</span>(<span class="string">'http-proxy-middleware'</span>);</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="comment">// proxy api requests</span></span><br><span class="line"><span class="comment">// 顺序必须在 bodyParser 之前！！！</span></span><br><span class="line">Object.keys(proxyTable).<span class="keyword">forEach</span>(<span class="function"><span class="keyword">function</span><span class="params">(context)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> options = proxyTable[context]</span><br><span class="line">  <span class="keyword">if</span> (typeof options === <span class="string">'string'</span>) &#123;</span><br><span class="line">    options = &#123;</span><br><span class="line">      target: options</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  app.<span class="keyword">use</span>(proxy(options.filter || context, options));</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>proxy/proxy.js 配置</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 这里只提供基本用法 , 更多配置请参考 http-proxy-middleware readme</span></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="string">'/api'</span>: &#123;</div><div class="line">    <span class="attr">target</span>: <span class="string">'http://yourUrl:port1/'</span>,</div><div class="line">    <span class="attr">changeOrigin</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">pathRewrite</span>: &#123;</div><div class="line">      <span class="string">'^/api'</span>: <span class="string">''</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="string">'/auth'</span>: &#123;</div><div class="line">    <span class="attr">target</span>: <span class="string">'http://yourUrl:port2/'</span>,</div><div class="line">    <span class="attr">changeOrigin</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">pathRewrite</span>: &#123;</div><div class="line">      <span class="string">'^/auth'</span>: <span class="string">'/auth'</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">onProxyReq</span>: <span class="function"><span class="keyword">function</span>(<span class="params">proxyReq, req, res</span>) </span>&#123;</div><div class="line">      proxyReq.setHeader(<span class="string">'add'</span>, <span class="string">'xx'</span>)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这里只提供基本用法 , 更多配置请参考 http-proxy-middleware readme</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="string">'/api'</span>: &#123;</span><br><span class="line">    target: <span class="string">'http://yourUrl:port1/'</span>,</span><br><span class="line">    changeOrigin: <span class="literal">true</span>,</span><br><span class="line">    pathRewrite: &#123;</span><br><span class="line">      <span class="string">'^/api'</span>: <span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">'/auth'</span>: &#123;</span><br><span class="line">    target: <span class="string">'http://yourUrl:port2/'</span>,</span><br><span class="line">    changeOrigin: <span class="literal">true</span>,</span><br><span class="line">    pathRewrite: &#123;</span><br><span class="line">      <span class="string">'^/auth'</span>: <span class="string">'/auth'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    onProxyReq: <span class="function"><span class="keyword">function</span>(<span class="params">proxyReq, req, res</span>) </span>&#123;</span><br><span class="line">      proxyReq.setHeader(<span class="string">'add'</span>, <span class="string">'xx'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="工具手架"><a href="#工具手架" class="headerlink" title="工具手架"></a>工具手架</h4><p>如果你是想要直接将前端代码跑起来，node-1742 是我提供了一个可以使用 npm 获取并开箱即用的包。</p>
-<figure class="highlight smali"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">// 1. 下载</div><div class="line">npm install -g node-1742</div><div class="line"></div><div class="line">// 2. 命令生成</div><div class="line">// *<span class="built_in"> new </span>folder</div><div class="line">node-1742 init<span class="built_in"> new-folder</span></div><div class="line">cd<span class="built_in"> new-folder</span></div><div class="line"></div><div class="line">// * exist folder</div><div class="line">cd exist-folder</div><div class="line">node-1742 init</div><div class="line"></div><div class="line">// 3. 安装依赖</div><div class="line">npm install</div><div class="line"></div><div class="line">// 4. 在 proxy/proxy.js 中配置代理</div><div class="line"></div><div class="line">// 5. 将前端文件放入<span class="keyword"> public</span> 文件夹中，入口为<span class="keyword"> public</span>/index.html</div><div class="line"></div><div class="line">// 6. 运行</div><div class="line">npm start</div></pre></td></tr></table></figure>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// 1. 下载</span><br><span class="line">npm install -g node-1742</span><br><span class="line"></span><br><span class="line">// 2. 命令生成</span><br><span class="line">// *<span class="built_in"> new </span>folder</span><br><span class="line">node-1742 init new-folder</span><br><span class="line">cd new-folder</span><br><span class="line"></span><br><span class="line">// * exist folder</span><br><span class="line">cd exist-folder</span><br><span class="line">node-1742 init</span><br><span class="line"></span><br><span class="line">// 3. 安装依赖</span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line">// 4. 在 proxy/proxy.js 中配置代理</span><br><span class="line"></span><br><span class="line">// 5. 将前端文件放入<span class="keyword"> public</span> 文件夹中，入口为<span class="keyword"> public</span>/index.html</span><br><span class="line"></span><br><span class="line">// 6. 运行</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
 <h4 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q &amp; A"></a>Q &amp; A</h4><blockquote>
 <p>通过 ajax 发送的请求后台接收不到 data ？</p>
 </blockquote>
@@ -397,7 +398,7 @@
 <p>将数据做了处理。</p>
 <p>解决办法：</p>
 <p>将 proxy 的 order 提到 bodyParser 之前</p>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p>github : <a href="https://github.com/chimurai/http-proxy-middleware" target="_blank" rel="external">http-proxy-middleware</a></p>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p>github : <a href="https://github.com/chimurai/http-proxy-middleware" target="_blank" rel="noopener">http-proxy-middleware</a></p>
 <p>vue-cli : config/index.js proxyTable &amp;&amp; build/dev-server.js</p>
 
       
@@ -533,7 +534,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -544,7 +545,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -555,7 +556,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -633,7 +634,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-check"></i>
   </span>

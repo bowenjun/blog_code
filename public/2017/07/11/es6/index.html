@@ -88,7 +88,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="grunt," />
+  <meta name="keywords" content="es6," />
 
 
 
@@ -104,18 +104,18 @@
 
 
 
-<meta name="description" content="配置">
-<meta name="keywords" content="grunt">
+<meta name="description" content="let &amp;amp; const声明变量  只在其代码块有效 不存在变量提升 暂时性死区  暂时性死区：如果区块中存在let和const命令，这个区块对这些命令声明的变量从一开始就形成封闭的作用域123456var tmp = 123;if (true) &amp;#123;    tmp = &apos;abc">
+<meta name="keywords" content="es6">
 <meta property="og:type" content="article">
-<meta property="og:title" content="grunt">
-<meta property="og:url" content="http://www.ss1742.com/2017/05/26/grunt-watch/index.html">
+<meta property="og:title" content="es6 笔记">
+<meta property="og:url" content="http://www.ss1742.com/2017/07/11/es6/index.html">
 <meta property="og:site_name" content="1742的个人博客">
-<meta property="og:description" content="配置">
+<meta property="og:description" content="let &amp;amp; const声明变量  只在其代码块有效 不存在变量提升 暂时性死区  暂时性死区：如果区块中存在let和const命令，这个区块对这些命令声明的变量从一开始就形成封闭的作用域123456var tmp = 123;if (true) &amp;#123;    tmp = &apos;abc&apos;; // ReferenceError    let tmp;&amp;#125;    不允许重复声明">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-06-14T02:21:56.000Z">
+<meta property="og:updated_time" content="2017-07-11T11:59:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="grunt">
-<meta name="twitter:description" content="配置">
+<meta name="twitter:title" content="es6 笔记">
+<meta name="twitter:description" content="let &amp;amp; const声明变量  只在其代码块有效 不存在变量提升 暂时性死区  暂时性死区：如果区块中存在let和const命令，这个区块对这些命令声明的变量从一开始就形成封闭的作用域123456var tmp = 123;if (true) &amp;#123;    tmp = &apos;abc&apos;; // ReferenceError    let tmp;&amp;#125;    不允许重复声明">
 
 
 
@@ -143,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="http://www.ss1742.com/2017/05/26/grunt-watch/"/>
+  <link rel="canonical" href="http://www.ss1742.com/2017/07/11/es6/"/>
 
 
 
 
 
-  <title> grunt | 1742的个人博客 </title>
+  <title> es6 笔记 | 1742的个人博客 </title>
 </head>
 
 
@@ -292,7 +292,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://www.ss1742.com/2017/05/26/grunt-watch/">
+    <link itemprop="mainEntityOfPage" href="http://www.ss1742.com/2017/07/11/es6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="1742">
@@ -313,7 +313,7 @@
             
             
               
-                grunt
+                es6 笔记
               
             
           </h1>
@@ -328,8 +328,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-26T21:16:14+08:00">
-                2017-05-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-11T18:16:14+08:00">
+                2017-07-11
               </time>
             
 
@@ -351,8 +351,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/webpack-grunt-glup/" itemprop="url" rel="index">
-                    <span itemprop="name">webpack-grunt-glup</span>
+                  <a href="/categories/es6/" itemprop="url" rel="index">
+                    <span itemprop="name">es6</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/es6/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
                   </a>
                 </span>
 
@@ -369,7 +380,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/2017/05/26/grunt-watch/#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/2017/07/11/es6/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -401,36 +412,84 @@
       
 
       
-        <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><a id="more"></a>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">module.exports = <span class="keyword">function</span>(grunt) &#123;</span><br><span class="line"></span><br><span class="line">    // 配置</span><br><span class="line">    grunt.initConfig(&#123;</span><br><span class="line">        pkg : grunt.file.readJSON(<span class="string">'package.json'</span>),</span><br><span class="line">        uglify : &#123;</span><br><span class="line">            options : &#123;</span><br><span class="line">                banner : <span class="string">'/*! &lt;%= pkg.name %&gt; &lt;%= grunt.template.today("yyyy-mm-dd HH:MM:ss") %&gt; */\n'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            build : &#123;</span><br><span class="line">                options: &#123;</span><br><span class="line">                    mangle: false</span><br><span class="line">                &#125;,</span><br><span class="line">                files: &#123;</span><br><span class="line">                    <span class="string">'build/app.min.js'</span>: [</span><br><span class="line">                        <span class="string">'app/*.js'</span>, <span class="string">'app/*/*.js'</span>, <span class="string">'app/*/*/*.js'</span>, <span class="string">'app/*/*/*/*.js'</span></span><br><span class="line">                    ]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        less: &#123;</span><br><span class="line">            compile: &#123;</span><br><span class="line">                options: &#123;</span><br><span class="line">                    paths: [<span class="string">"app/app/css"</span>]</span><br><span class="line">                &#125;,</span><br><span class="line">                files: &#123;</span><br><span class="line">                    <span class="string">"build/style.css"</span>: <span class="string">"app/css/main.less"</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        watch: &#123;</span><br><span class="line">            scripts: &#123;</span><br><span class="line">                files: [<span class="string">'app/css/*.less'</span>, <span class="string">'app/*.js'</span>, <span class="string">'app/*/*.js'</span>, <span class="string">'app/*/*/*.js'</span>, <span class="string">'app/*/*/*/*.js'</span>],</span><br><span class="line">                tasks: [<span class="string">'less'</span>, <span class="string">'uglify'</span>]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    // 载入uglify插件</span><br><span class="line">    grunt.loadNpmTasks(<span class="string">'grunt-contrib-uglify'</span>);</span><br><span class="line"></span><br><span class="line">    // less</span><br><span class="line">    grunt.loadNpmTasks(<span class="string">'grunt-contrib-less'</span>);</span><br><span class="line"></span><br><span class="line">    // watch</span><br><span class="line">    grunt.loadNpmTasks(<span class="string">'grunt-contrib-watch'</span>);</span><br><span class="line"></span><br><span class="line">    // 注册任务</span><br><span class="line">    grunt.registerTask(<span class="string">'default'</span>, [<span class="string">'uglify'</span>, <span class="string">'less'</span>, <span class="string">'watch'</span>]);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="配置说明"><a href="#配置说明" class="headerlink" title="配置说明"></a>配置说明</h3><ul>
-<li><p><code>initConfig uglify</code></p>
-<p>  <code>build</code> 通过 <code>*</code> 通配文件，并将js压缩，结果存放到 <code>build/app.min.js</code></p>
-</li>
-<li><p><code>initConfig less</code></p>
-<p>  <code>compile</code> 直接将  <code>main.less</code> 文件通过 <code>grunt-contrib-less</code> 转换为 <code>css</code>，在 <code>main.less</code> 中通过 <code>import</code> 导入的文件也会被转换，最终生成一个 <code>css</code> 文件为 <code>build/app.min.js</code></p>
-</li>
-<li><p><code>initConfig watch</code></p>
-<p>  <code>scripts watch</code> 通过  <code>*</code> 通配变化的文件，若文件内容发生变化，会执行 <code>uglify</code> 和 <code>less</code> 这两个 <code>tasks</code></p>
-</li>
-<li><p>插件</p>
+        <h2 id="let-amp-const"><a href="#let-amp-const" class="headerlink" title="let &amp; const"></a>let &amp; const</h2><p>声明变量</p>
 <ul>
-<li><code>grunt.loadNpmTasks(‘grunt-contrib-uglify’);</code></li>
-<li><code>grunt.loadNpmTasks(‘grunt-contrib-less’);</code></li>
-<li><code>grunt.loadNpmTasks(‘grunt-contrib-watch’);</code></li>
+<li>只在其代码块有效</li>
+<li>不存在变量提升</li>
+<li><p>暂时性死区</p>
+<ul>
+<li>暂时性死区：如果区块中存在let和const命令，这个区块对这些命令声明的变量从一开始就形成封闭的作用域<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tmp = <span class="number">123</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    tmp = <span class="string">'abc'</span>; <span class="comment">// ReferenceError</span></span><br><span class="line">    <span class="keyword">let</span> tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
-<li><p>注册</p>
-<p>  配置完成之后执行注册任务</p>
+<li><p>不允许重复声明</p>
+</li>
+</ul>
+<a id="more"></a>
 <blockquote>
-<p><code>grunt.registerTask(‘default’, [‘uglify’, ‘less’, ‘watch’]);</code></p>
+<p>let</p>
 </blockquote>
+<ul>
+<li>无</li>
+</ul>
+<blockquote>
+<p>const</p>
+</blockquote>
+<ul>
+<li>声明常量，一旦声明，值不能改变</li>
+<li>复合类型变量，变量名指向地址</li>
+</ul>
+<h2 id="变量的解构赋值"><a href="#变量的解构赋值" class="headerlink" title="变量的解构赋值"></a>变量的解构赋值</h2><h3 id="数组的解构"><a href="#数组的解构" class="headerlink" title="数组的解构"></a>数组的解构</h3><blockquote>
+<p>[a, b] = [b, a]</p>
+</blockquote>
+<h3 id="对象的解构"><a href="#对象的解构" class="headerlink" title="对象的解构"></a>对象的解构</h3><blockquote>
+<p>var { foo, bar } = { foo: ‘aaa’, bar: ‘bbb’ }</p>
+</blockquote>
+<h3 id="字符串的解构"><a href="#字符串的解构" class="headerlink" title="字符串的解构"></a>字符串的解构</h3><blockquote>
+<p>const [a, b, c, d, e] = ‘bowen’</p>
+</blockquote>
+<h3 id="数值和布尔值的解构"><a href="#数值和布尔值的解构" class="headerlink" title="数值和布尔值的解构"></a>数值和布尔值的解构</h3><blockquote>
+<p>let {toString: s} = 123</p>
+</blockquote>
+<h3 id="函数参数的解构"><a href="#函数参数的解构" class="headerlink" title="函数参数的解构"></a>函数参数的解构</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function add([<span class="selector-tag">a</span>, b]) &#123;</span><br><span class="line">    return <span class="selector-tag">a</span> + b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="字符串扩展"><a href="#字符串扩展" class="headerlink" title="字符串扩展"></a>字符串扩展</h2><p>JavaScript内部，字符以UTF-16的格式存储，每个字符固定为2字节</p>
+<h3 id="codePointAt"><a href="#codePointAt" class="headerlink" title="codePointAt()"></a>codePointAt()</h3><h3 id="String-fromCodePoint"><a href="#String-fromCodePoint" class="headerlink" title="String.fromCodePoint()"></a>String.fromCodePoint()</h3><h3 id="at"><a href="#at" class="headerlink" title="at()"></a>at()</h3><h3 id="normalize"><a href="#normalize" class="headerlink" title="normalize()"></a>normalize()</h3><h3 id="includes-，startsWith-，endsWith"><a href="#includes-，startsWith-，endsWith" class="headerlink" title="includes()，startsWith()，endsWith()"></a>includes()，startsWith()，endsWith()</h3><p>对应indexOf方法，接收第二个参数表示开始搜索的位置</p>
+<ul>
+<li><p>includes()</p>
+<p>  返回布尔值，表示是否找到参数字符串</p>
+</li>
+<li><p>startsWith()</p>
+<p>  返回布尔值，表示参数字符串是否在源字符串头部</p>
+</li>
+<li><p>endsWith()</p>
+<p>  返回布尔值，表示参数字符串是否在源字符串尾部</p>
 </li>
 </ul>
-<h3 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"grunt"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.1.0"</span>,</span><br><span class="line">  <span class="attr">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"grunt"</span>: <span class="string">"~0.4.0"</span>,</span><br><span class="line">    <span class="attr">"grunt-contrib-concat"</span>: <span class="string">"~0.2.0"</span>,</span><br><span class="line">    <span class="attr">"grunt-contrib-jshint"</span>: <span class="string">"~0.6.5"</span>,</span><br><span class="line">    <span class="attr">"grunt-contrib-less"</span>: <span class="string">"^1.4.0"</span>,</span><br><span class="line">    <span class="attr">"grunt-contrib-uglify"</span>: <span class="string">"~0.2.7"</span>,</span><br><span class="line">    <span class="attr">"grunt-contrib-watch"</span>: <span class="string">"^1.0.0"</span>,</span><br><span class="line">    <span class="attr">"grunt-jsdoc"</span>: <span class="string">"^2.1.0"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p>Q: <code>grunt: watch ENOSPC</code></p>
-<p>A: <code>echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf &amp;&amp; sudo sysctl -p</code></p>
-
+<h3 id="repeat"><a href="#repeat" class="headerlink" title="repeat()"></a>repeat()</h3><p>参数是数字</p>
+<ul>
+<li>小数会被取整</li>
+<li>负数或Infinity会报错</li>
+<li>0到-1之间的小数等同于0</li>
+<li>NaN等同于0</li>
+<li>字符串先被转换为数字</li>
+</ul>
+<h3 id="padStart-，padEnd"><a href="#padStart-，padEnd" class="headerlink" title="padStart()，padEnd()"></a>padStart()，padEnd()</h3><p>字符串补全</p>
+<ul>
+<li>第一个参数用来指定字符串最小长度</li>
+<li>第二个参数用来补全，缺省则用空格补全</li>
+</ul>
+<h3 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h3><blockquote>
+<p>`i am ${name}`</p>
+</blockquote>
+<h3 id="String-raw"><a href="#String-raw" class="headerlink" title="String.raw()"></a>String.raw()</h3><h2 id="正则的扩展"><a href="#正则的扩展" class="headerlink" title="正则的扩展"></a>正则的扩展</h2><h3 id="RegExp-构造函数"><a href="#RegExp-构造函数" class="headerlink" title="RegExp 构造函数"></a>RegExp 构造函数</h3><h3 id="字符串的正则方法"><a href="#字符串的正则方法" class="headerlink" title="字符串的正则方法"></a>字符串的正则方法</h3><ul>
+<li>match()</li>
+<li>replace()</li>
+<li>search()</li>
+<li>split()</li>
+</ul>
+<h3 id="u修饰符"><a href="#u修饰符" class="headerlink" title="u修饰符"></a>u修饰符</h3><h3 id="y修饰符，sticky属性"><a href="#y修饰符，sticky属性" class="headerlink" title="y修饰符，sticky属性"></a>y修饰符，sticky属性</h3><p>sticky属性表示是否设置了y修饰符</p>
+<h3 id="flags属性"><a href="#flags属性" class="headerlink" title="flags属性"></a>flags属性</h3><p>返回正则表达式的修饰符</p>
+<h2 id="数值的扩展"><a href="#数值的扩展" class="headerlink" title="数值的扩展"></a>数值的扩展</h2><h2 id="数组的扩展"><a href="#数组的扩展" class="headerlink" title="数组的扩展"></a>数组的扩展</h2><h2 id="函数的扩展"><a href="#函数的扩展" class="headerlink" title="函数的扩展"></a>函数的扩展</h2>
       
     </div>
 
@@ -459,7 +518,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/grunt/" rel="tag"># grunt</a>
+            <a href="/tags/es6/" rel="tag"># es6</a>
           
         </div>
       
@@ -472,8 +531,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/04/http-proxy-middleware/" rel="next" title="http-proxy-middleware代理前端系统">
-                <i class="fa fa-chevron-left"></i> http-proxy-middleware代理前端系统
+              <a href="/2017/05/26/grunt-watch/" rel="next" title="grunt">
+                <i class="fa fa-chevron-left"></i> grunt
               </a>
             
           </div>
@@ -481,10 +540,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/11/es6/" rel="prev" title="es6 笔记">
-                es6 笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -635,7 +690,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置说明"><span class="nav-number">2.</span> <span class="nav-text">配置说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#package-json"><span class="nav-number">3.</span> <span class="nav-text">package.json</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见问题"><span class="nav-number">4.</span> <span class="nav-text">常见问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#let-amp-const"><span class="nav-number">1.</span> <span class="nav-text">let & const</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量的解构赋值"><span class="nav-number">2.</span> <span class="nav-text">变量的解构赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组的解构"><span class="nav-number">2.1.</span> <span class="nav-text">数组的解构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的解构"><span class="nav-number">2.2.</span> <span class="nav-text">对象的解构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串的解构"><span class="nav-number">2.3.</span> <span class="nav-text">字符串的解构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数值和布尔值的解构"><span class="nav-number">2.4.</span> <span class="nav-text">数值和布尔值的解构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数参数的解构"><span class="nav-number">2.5.</span> <span class="nav-text">函数参数的解构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串扩展"><span class="nav-number">3.</span> <span class="nav-text">字符串扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#codePointAt"><span class="nav-number">3.1.</span> <span class="nav-text">codePointAt()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-fromCodePoint"><span class="nav-number">3.2.</span> <span class="nav-text">String.fromCodePoint()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#at"><span class="nav-number">3.3.</span> <span class="nav-text">at()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#normalize"><span class="nav-number">3.4.</span> <span class="nav-text">normalize()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#includes-，startsWith-，endsWith"><span class="nav-number">3.5.</span> <span class="nav-text">includes()，startsWith()，endsWith()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#repeat"><span class="nav-number">3.6.</span> <span class="nav-text">repeat()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#padStart-，padEnd"><span class="nav-number">3.7.</span> <span class="nav-text">padStart()，padEnd()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板字符串"><span class="nav-number">3.8.</span> <span class="nav-text">模板字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-raw"><span class="nav-number">3.9.</span> <span class="nav-text">String.raw()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则的扩展"><span class="nav-number">4.</span> <span class="nav-text">正则的扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RegExp-构造函数"><span class="nav-number">4.1.</span> <span class="nav-text">RegExp 构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串的正则方法"><span class="nav-number">4.2.</span> <span class="nav-text">字符串的正则方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u修饰符"><span class="nav-number">4.3.</span> <span class="nav-text">u修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#y修饰符，sticky属性"><span class="nav-number">4.4.</span> <span class="nav-text">y修饰符，sticky属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flags属性"><span class="nav-number">4.5.</span> <span class="nav-text">flags属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数值的扩展"><span class="nav-number">5.</span> <span class="nav-text">数值的扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的扩展"><span class="nav-number">6.</span> <span class="nav-text">数组的扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的扩展"><span class="nav-number">7.</span> <span class="nav-text">函数的扩展</span></a></li></ol></div>
             
 
           </div>

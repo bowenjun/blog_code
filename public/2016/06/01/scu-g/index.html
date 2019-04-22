@@ -109,8 +109,9 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="毕业设计">
 <meta property="og:url" content="http://www.ss1742.com/2016/06/01/scu-g/index.html">
-<meta property="og:site_name" content="1742@xxs的个人博客">
+<meta property="og:site_name" content="1742的个人博客">
 <meta property="og:description" content="毕业设计收拾整理为知笔记，这里将毕业设计的部分笔记写成博客后移除为知笔记。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-06-14T01:52:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="毕业设计">
@@ -148,7 +149,7 @@
 
 
 
-  <title> 毕业设计 | 1742@xxs的个人博客 </title>
+  <title> 毕业设计 | 1742的个人博客 </title>
 </head>
 
 
@@ -188,12 +189,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">1742@xxs的个人博客</span>
+        <span class="site-title">1742的个人博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">笔者人生</p>
+        <p class="site-subtitle">笔者</p>
       
   </div>
 
@@ -300,7 +301,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="1742@xxs的个人博客">
+      <meta itemprop="name" content="1742的个人博客">
     </span>
 
     
@@ -426,10 +427,10 @@
 </blockquote>
 </li>
 <li><p>配置端口</p>
-  <figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">app.<span class="keyword">set</span>(<span class="string">'port'</span>, process.env.PORT || <span class="number">3000</span>);</div><div class="line">app.listen(app.<span class="keyword">get</span>(<span class="string">'port'</span>), <span class="function"><span class="keyword">function</span> </span>() &#123;</div><div class="line">    console.log(<span class="string">'Express server listening on port '</span> + app.<span class="keyword">get</span>(<span class="string">'port'</span>));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+  <figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="keyword">set</span>(<span class="string">'port'</span>, process.env.PORT || <span class="number">3000</span>);</span><br><span class="line">app.listen(app.<span class="keyword">get</span>(<span class="string">'port'</span>), <span class="function"><span class="keyword">function</span> </span>() &#123;</span><br><span class="line">    console.log(<span class="string">'Express server listening on port '</span> + app.<span class="keyword">get</span>(<span class="string">'port'</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>设置模板引擎</p>
-  <figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> ejs = <span class="keyword">require</span>(<span class="string">'ejs'</span>);</div><div class="line">app.<span class="built_in">set</span>(<span class="string">'views'</span>, __dirname + <span class="string">'/views'</span>);</div><div class="line">app.engine(<span class="string">'.html'</span>, ejs.__express);</div><div class="line">app.<span class="built_in">set</span>(<span class="string">'view engine'</span>, <span class="string">'html'</span>);</div></pre></td></tr></table></figure>
+  <figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> ejs = <span class="keyword">require</span>(<span class="string">'ejs'</span>);</span><br><span class="line">app.<span class="built_in">set</span>(<span class="string">'views'</span>, __dirname + <span class="string">'/views'</span>);</span><br><span class="line">app.engine(<span class="string">'.html'</span>, ejs.__express);</span><br><span class="line">app.<span class="built_in">set</span>(<span class="string">'view engine'</span>, <span class="string">'html'</span>);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用静态文件</p>
 <blockquote>
@@ -439,10 +440,10 @@
 </ul>
 <h4 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h4><ul>
 <li><p>配置 <code>mysql</code></p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> _mysql = <span class="built_in">require</span>(<span class="string">'mysql'</span>);</div><div class="line"><span class="keyword">var</span> HOST = <span class="string">'localhost'</span>,</div><div class="line">    PORT = <span class="string">'3306'</span>,</div><div class="line">    MYSQL_USER = <span class="string">'root'</span>,</div><div class="line">    MYSQL_PASS = <span class="string">'123456'</span>,</div><div class="line">    DATABASE = <span class="string">'scu'</span>,</div><div class="line">    CHARSET = <span class="string">'UTF8'</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> config = &#123;</div><div class="line">    <span class="attr">host</span>: HOST,</div><div class="line">    <span class="attr">port</span>: PORT,</div><div class="line">    <span class="attr">user</span>: MYSQL_USER,</div><div class="line">    <span class="attr">password</span>: MYSQL_PASS,</div><div class="line">    <span class="attr">charset</span>: CHARSET</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> _mysql = <span class="built_in">require</span>(<span class="string">'mysql'</span>);</span><br><span class="line"><span class="keyword">var</span> HOST = <span class="string">'localhost'</span>,</span><br><span class="line">    PORT = <span class="string">'3306'</span>,</span><br><span class="line">    MYSQL_USER = <span class="string">'root'</span>,</span><br><span class="line">    MYSQL_PASS = <span class="string">'123456'</span>,</span><br><span class="line">    DATABASE = <span class="string">'scu'</span>,</span><br><span class="line">    CHARSET = <span class="string">'UTF8'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">    host: HOST,</span><br><span class="line">    port: PORT,</span><br><span class="line">    user: MYSQL_USER,</span><br><span class="line">    password: MYSQL_PASS,</span><br><span class="line">    charset: CHARSET</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>连接 <code>mysql</code> 回调</p>
-  <figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">var Connect = <span class="function"><span class="keyword">function</span><span class="params">(sql, sql_params)</span></span> &#123;</div><div class="line"></div><div class="line">    var mysql = _mysql.createConnection(<span class="built_in">config</span>);</div><div class="line">    mysql.query(<span class="string">'use '</span> + DATABASE, <span class="function"><span class="keyword">function</span><span class="params">(error, results)</span></span> &#123;</div><div class="line">        <span class="keyword">if</span>(<span class="built_in">error</span>) &#123;</div><div class="line">            console.log(<span class="string">'ClientConnectionReady Error: '</span> + <span class="built_in">error</span>.message);</div><div class="line">            mysql.<span class="keyword">end</span>();</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    mysql.query(sql,sql_params,<span class="function"><span class="keyword">function</span> <span class="params">(err, result)</span></span> &#123;</div><div class="line">        <span class="keyword">if</span>(err)&#123;</div><div class="line">            console.log(<span class="string">'ERROR] - '</span>,err.message);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    mysql.<span class="keyword">end</span>();</div><div class="line">&#125;;</div></pre></td></tr></table></figure></li>
+  <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var Connect = <span class="function"><span class="keyword">function</span><span class="params">(sql, sql_params)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">    var mysql = _mysql.createConnection(<span class="built_in">config</span>);</span><br><span class="line">    mysql.query(<span class="string">'use '</span> + DATABASE, <span class="function"><span class="keyword">function</span><span class="params">(error, results)</span></span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">error</span>) &#123;</span><br><span class="line">            console.<span class="built_in">log</span>(<span class="string">'ClientConnectionReady Error: '</span> + <span class="built_in">error</span>.message);</span><br><span class="line">            mysql.<span class="keyword">end</span>();</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    mysql.query(sql,sql_params,<span class="function"><span class="keyword">function</span> <span class="params">(err, result)</span></span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(err)&#123;</span><br><span class="line">            console.<span class="built_in">log</span>(<span class="string">'ERROR] - '</span>,err.message);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    mysql.<span class="keyword">end</span>();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -572,7 +573,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -583,7 +584,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -594,7 +595,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -672,7 +673,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-check"></i>
   </span>

@@ -109,8 +109,9 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo 简易教程">
 <meta property="og:url" content="http://www.ss1742.com/2017/03/26/hexo/index.html">
-<meta property="og:site_name" content="1742@xxs的个人博客">
+<meta property="og:site_name" content="1742的个人博客">
 <meta property="og:description" content="hexo 使用教程 详见：hexo官方教程  安装1$ npm install -g hexo-cli">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-06-14T01:53:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo 简易教程">
@@ -148,7 +149,7 @@
 
 
 
-  <title> hexo 简易教程 | 1742@xxs的个人博客 </title>
+  <title> hexo 简易教程 | 1742的个人博客 </title>
 </head>
 
 
@@ -188,12 +189,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">1742@xxs的个人博客</span>
+        <span class="site-title">1742的个人博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">笔者人生</p>
+        <p class="site-subtitle">笔者</p>
       
   </div>
 
@@ -300,7 +301,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="1742@xxs的个人博客">
+      <meta itemprop="name" content="1742的个人博客">
     </span>
 
     
@@ -379,35 +380,35 @@
 
       
         <h3 id="hexo-使用教程"><a href="#hexo-使用教程" class="headerlink" title="hexo 使用教程"></a>hexo 使用教程</h3><hr>
-<p>详见：<a href="https://hexo.io/zh-cn" target="_blank" rel="external">hexo官方教程</a></p>
+<p>详见：<a href="https://hexo.io/zh-cn" target="_blank" rel="noopener">hexo官方教程</a></p>
 <hr>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-<span class="keyword">cli</span></div></pre></td></tr></table></figure>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install -g hexo-cli</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h4 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h4><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>hexo init &lt;folder&gt;</div><div class="line"><span class="variable">$ </span>cd &lt;folder&gt;</div><div class="line"><span class="variable">$ </span>npm install</div></pre></td></tr></table></figure>
+<h4 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo init &lt;folder&gt;</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> &lt;folder&gt;</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install</span></span><br></pre></td></tr></table></figure>
 <h4 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h4><blockquote>
 <p>new </p>
 </blockquote>
-<figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo <span class="keyword">new</span> [layout] &lt;<span class="built_in">title</span>&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo <span class="keyword">new</span> [layout] &lt;<span class="built_in">title</span>&gt;</span><br></pre></td></tr></table></figure>
 <p>新建一篇文章</p>
 <blockquote>
 <p>generate</p>
 </blockquote>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo <span class="keyword">generate</span></div><div class="line">$ hexo g (简写)</div></pre></td></tr></table></figure>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo <span class="keyword">generate</span></span><br><span class="line">$ hexo g (简写)</span><br></pre></td></tr></table></figure>
 <p>生成静态文件</p>
 <blockquote>
 <p>server</p>
 </blockquote>
-<figure class="highlight axapta"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo <span class="keyword">server</span></div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo server</span></span><br></pre></td></tr></table></figure>
 <p>启动服务器(默认4000端口)</p>
 <blockquote>
 <p>deploy</p>
 </blockquote>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>hexo deploy</div><div class="line"><span class="variable">$ </span>hexo d (简写)</div><div class="line"><span class="variable">$ </span>hexo d -g (部署之前预先生成静态文件)</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo deploy</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo d (简写)</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo d -g (部署之前预先生成静态文件)</span></span><br></pre></td></tr></table></figure>
 <p>部署网站</p>
 <blockquote>
 <p>clean</p>
 </blockquote>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>hexo clean</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo clean</span></span><br></pre></td></tr></table></figure>
 <p>清除缓存文件和已生成的静态文件</p>
 
       
@@ -537,7 +538,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -548,7 +549,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -559,7 +560,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -637,7 +638,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-check"></i>
   </span>
